@@ -9,11 +9,14 @@
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <title>eMercado - Todo lo que busques está aquí</title>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="777371207853-b27ecke3mome53smp6fhge16j4m8ndul.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 
 <body>
-    
-    
+
+
 <div class="container">
     <div class="row">
         <div class="col-sm-6 col-md-4 col-md-offset-4">
@@ -26,10 +29,13 @@
                 <input id="usuario" type="text" class="form-control" placeholder="Usuario" required autofocus>
                 <input id="contraseña" type="password" class="form-control" placeholder="Contraseña" required>
                 <input type="button"  value="Login" class="btn btn-lg btn-primary btn-block" onclick="login();">
+                <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                <a class="sing" href="#" onclick="signOut();">Sign out</a>
                 <label class="checkbox">
                     <input type="checkbox" value="remember-me">
-                    Remember me
+                    Recuerdame
                 </label>
+                <p class="copy">&copy; 2020</p>
                 </form>
             
     </div>
