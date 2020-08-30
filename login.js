@@ -25,6 +25,8 @@ function login (){
         }
 
         else{
+            localStorage.setItem("usuario", usuario.trim()); //Almacena el dato en la posición "usuario"
+            localStorage.setItem("contraseña", contraseña.trim()); // Almaceno la contraseña
             window.location.href="inicio.html"
         }
       
