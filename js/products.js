@@ -37,7 +37,7 @@ function OrdenarProductos(criteria, array){
     return result;
 }
 
-//Función para mostrar los Productos
+//Función para mostrar los Producto
 function MostrarProductos(array){
 
     let htmlContentToAppend = "";
