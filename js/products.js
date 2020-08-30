@@ -7,7 +7,7 @@ var minCount = undefined;
 var maxCount = undefined;
 var categoriesArray = [];
 
-//Función para ordenar los Productos
+//Función para ordenar los Producto
 function OrdenarProductos(criteria, array){
     let result = [];
     if (criteria === Orden_Ascendente)
