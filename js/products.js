@@ -48,6 +48,7 @@ function MostrarProductos(array){
         ((maxCount == undefined) || (maxCount != undefined && parseInt(category.cost) <= maxCount))){
 
         htmlContentToAppend += `
+        <a href="product-info.html" class="list-group-item-action">
         <div class="list-group-item list-group-item-action">
             <div class="row">
                 <div class="col-3">
@@ -62,6 +63,7 @@ function MostrarProductos(array){
                 </div>
             </div>
         </div>
+        </a>
         `
     }
         document.getElementById("products").innerHTML = htmlContentToAppend;
