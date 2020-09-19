@@ -1,22 +1,28 @@
 var product = {};
 
-//funcion para las imagenes
-function showImagesGallery(array){
+//funcion para las imagenes en Carusel
+function mostrarCarusel(array){
 
     let htmlContentToAppend = "";
 
     for(let i = 0; i < array.length; i++){
         let imageSrc = array[i];
 
-        htmlContentToAppend += `
-        <div class="col-lg-3 col-md-4 col-6">
-            <div class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
-            </div>
-        </div>
-        `
+        if(i==0){
+            htmlContentToAppend +=` 
+            <div class="carousel-item active">
+            <img src="` + imageSrc + `"class="d-block w-100" alt="...">
+            </div>`
+        }
 
-        document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
+        else{
+            htmlContentToAppend +=` 
+            <div class="carousel-item">
+            <img src="` + imageSrc + `"class="d-block w-100" alt="...">
+            </div>`
+        }
+        
+        document.getElementById("carusel").innerHTML = htmlContentToAppend;
     }
 }
 
@@ -45,8 +51,8 @@ document.addEventListener("DOMContentLoaded", function(e){
             
            
 
-            //Muestro las imagenes en forma de galería
-            showImagesGallery(product.images);
+            //Muestro las imagenes en forma de Carusel
+            mostrarCarusel(product.images);
 
             //Productos Relacionados
             getJSONData(PRODUCTS_URL).then(function(resultObj){

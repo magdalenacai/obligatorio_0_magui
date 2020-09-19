@@ -22,7 +22,16 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <p style="color: white;">Usuario Conectado: <span class="py-2 d-none d-md-inline-block" id="user" style="color: white;" ></span></p>
+      <div class="dropdown">
+        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span id="user" style="color: white;"></span>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+          <a class="dropdown-item" href="cart.html">Mi Carrito</a>
+          <button class="btn btn-danger" onclick="localStorage.clear(); alert('Usuario desconectado'); location.href='index.html';" style="margin-left: 15%;"><span style="color: white;">Desconectar</span></button>
+        </div>
+    </div>
     </div>
     
     <script>
@@ -85,8 +94,27 @@
 
       <dt>Imágenes ilustrativas</dt>
       <dd>
-        <div class="row text-center text-lg-left pt-2" id="productImagesGallery"></div>
-        
+        <div id="container">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+            </ol>
+            <div class="carousel-inner" id="carusel">
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Atras</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Adelante</span>
+            </a>
+          </div>
+        </div>
       </dd>
       
       <dt>Relacionados</dt>
