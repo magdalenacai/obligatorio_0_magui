@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
 <html lang="en">
 
 <head>
@@ -53,18 +54,133 @@
     </div>
     
     <script>
-      var usuario = localStorage.getItem("usuario"); //getItem Obtiene el dato de la posición "usuari"
+      var usuario = localStorage.getItem("usuario"); //getItem Obtiene el dato de la posición "usuario"
       document.getElementById('user').innerHTML=usuario;
     </script>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega: 25/10/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <div class="container col-8">
+    <div class="text-center p-4">
+      <h2>Mi carrito</h2>
+        <p class="lead">Su carrito contiene los siguientes artículos</p>
     </div>
+    <div class="row justify-content-md-center">
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Articulo</th>
+            <th>Costo</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+
+          </tr>
+        </thead>
+        <tbody id="carrito">
+
+        </tbody>
+      </table>
+    </div>
+    <form>
+
+    
+      <hr class="my-4">
+      <h5 class="mb-4">Tipo de Envío</h5>
+
+      <div class="d-block">
+        <div class="custom-control custom-radio">
+          <input id="envioPremium" name="publicationType" type="radio" class="custom-control-input" checked=""
+            required="">
+          <label class="custom-control-label" for="envioPremium">Premium 2 a 5 días (15%)</label>
+        </div>
+        <div class="custom-control custom-radio">
+          <input id="envioExpress" name="publicationType" type="radio" class="custom-control-input" required="">
+          <label class="custom-control-label" for="envioExpress">Express 5 a 8 días (7%)</label>
+        </div>
+        <div class="custom-control custom-radio">
+          <input id="envioStandard" name="publicationType" type="radio" class="custom-control-input" required="">
+          <label class="custom-control-label" for="envioStandard">Standard 12 a 15 días (5%)</label>
+        </div>
+      </div>
+
+      <hr class="my-4">
+
+      <h5 class="my-4">Dirección de envío</h5>
+
+      <div class="form-row">
+
+        <div class="form-group col-md-6">
+          <label for="calle">Calle</label>
+          <input type="text" class="form-control" id="calle" placeholder="Escriba su calle">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="numero">Número</label>
+          <input type="text" class="form-control" id="numeroPuerta" placeholder="Escriba el número de puerta">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="esquina">Esquina</label>
+          <input type="text" class="form-control" id="esquina" placeholder="Escriba nombre de esquina">
+        </div>
+      </div>
+
+
+      <hr class="my-4">
+
+
+
+      <h5 class="my-4">Costo Final</h5>
+
+      <ul class="list-group mb-3">
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">Subtotal</h6>
+            <small class="text-muted">Costo unitario del producto por cantidad</small>
+
+          </div>
+          <div id="subtotalSegundo">
+
+          </div>
+
+        </li>
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">Costo de envío</h6>
+            <small class="text-muted">Según el tipo de envío</small>
+          </div>
+          <div id="costoEnvio">
+
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+          <span>Total ($)</span>
+          <div id="total">
+          </div>
+        </li>
+      </ul>
+      <hr class="my-4">
+
+
+      <h5 class="my-4">Forma de pago</h5>
+      
+      <div class="row mb-4" style="margin-left: 1px;">
+        <select class="custom-select custom-select-sm">
+          <option selected>Selecciona una Opción</option>
+          <option value="1">Tarjeta Debito/Credito</option>
+          <option value="2">Giro Bancario</option>
+          <option value="3">En Efectivo</option>
+        </select>
+      </div>
+      <div class="row justify-content-md-center ">
+        <button type="button" class="btn btn-primary mb-5" data-toggle="modal" data-target=".bd-example-modal-sm">Comprar</button>
+        </div>
+      </div>
   </div>
+  </form>
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -73,6 +189,17 @@
       <div></div>
     </div>
   </div>
+
+  <footer class="text-muted bg-light">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    </div>
+  </footer>
+  
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>
