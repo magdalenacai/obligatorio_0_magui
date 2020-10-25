@@ -58,6 +58,7 @@
       document.getElementById('user').innerHTML=usuario;
     </script>
   </nav>
+  <div id="mainContainer">
   <div class="container col-8">
     <div class="text-center p-4">
       <h2>Mi carrito</h2>
@@ -104,34 +105,6 @@
 
       <hr class="my-4">
 
-      <h5 class="my-4">Dirección de envío</h5>
-
-      <div class="form-row">
-
-        <div class="form-group col-md-6">
-          <label for="calle">Calle</label>
-          <input type="text" class="form-control" id="calle" placeholder="Escriba su calle">
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="numero">Número</label>
-          <input type="text" class="form-control" id="numeroPuerta" placeholder="Escriba el número de puerta">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="esquina">Esquina</label>
-          <input type="text" class="form-control" id="esquina" placeholder="Escriba nombre de esquina">
-        </div>
-      </div>
-
-
-      <hr class="my-4">
-
-
-
       <h5 class="my-4">Costo Final</h5>
 
       <ul class="list-group mb-3">
@@ -162,24 +135,115 @@
         </li>
       </ul>
       <hr class="my-4">
+  
+  </form>
 
+  <main>
+    
+      <form id="shippingForm" class="" novalidate>
+        <div class="container my-5" id="cart-details">
+          <div>
+            <div class="col">
+              <div class="mb-4">
+                Detalles de envío
+              </div>
+              <div class='px-4 py-2'>
+                <div class="form-group">
+                  <label for="dirección">Dirección</label>
+                  <input type="text" name="dirección" id="dirección" class="form-control" required>
+                  <div class="invalid-feedback">Ingresa una dirección de envío</div>
+                </div>
+                <div class="form-group">
+                  <label for="ciudad">Ciudad</label>
+                  <input type="text" name="ciudad" id="ciudad" class="form-control" required>
+                  <div class="invalid-feedback">Ingresa una Ciudad para el envío</div>
+                </div>
+                <div class="form-group">
+                  <label for="departamento">Departamento</label>
+                  <select class="form-control" id="departamento" required>
+                    <option></option>
+                    <option>Artigas</option>
+                    <option>Canelones</option>
+                    <option >Cerro Largo</option>
+                    <option>Colonia</option>
+                    <option>Durazno</option>
+                    <option>Flores</option>
+                    <option >Florida</option>
+                    <option >Lavalleja</option>
+                    <option >Maldonado</option>
+                    <option >Montevideo</option>
+                    <option >Paysandú</option>
+                    <option >Río Negro</option>
+                    <option >Rivera</option>
+                    <option >Rocha</option>
+                    <option >Salto</option>
+                    <option >San José</option>
+                    <option >Soriano</option>
+                    <option >Tacuarembó</option>
+                    <option >Treinta y Tres</option>
+                  </select>
+                  <div class="invalid-feedback">Ingresa el departamento para el envío</div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
 
-      <h5 class="my-4">Forma de pago</h5>
-      
-      <div class="row mb-4" style="margin-left: 1px;">
-        <select class="custom-select custom-select-sm">
-          <option selected>Selecciona una Opción</option>
-          <option value="1">Tarjeta Debito/Credito</option>
-          <option value="2">Giro Bancario</option>
-          <option value="3">En Efectivo</option>
-        </select>
-      </div>
-      <div class="row justify-content-md-center ">
-        <button type="button" class="btn btn-primary mb-5" data-toggle="modal" data-target=".bd-example-modal-sm">Comprar</button>
+    <!-- Ventana de Pagos -->
+    <div class="modal" id="paymentModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Método de pago</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form id="paymentForm">
+            <div class="modal-body">
+              <div class="form-check">
+                <input type="radio" class="form-check-input" name="paymentOption" id="credit-card"
+                  onclick="tarjetaCredito()" required>
+                <label class="form-check-label" for="credit-card">Tarjeta de crédito</label>
+              </div>
+              <div class="form-check">
+                <input type="radio" class="form-check-input" name="paymentOption" id="wire-transfer"
+                  onclick="banco()" required>
+                <label class="form-check-label" for="wire-transfer">Transferencia bancaria</label>
+              </div>
+              <div id="paymentOptionContent" class="mt-3"></div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+              <button type="submit" class="btn btn-primary">Confirmar compra</button>
+          </form>
         </div>
       </div>
+    </div>
+    </div>
+
+    <!-- Fin -->
+    
+    <!-- Alerta de Compra -->
+    <div id="successAlertContainer" class="container d-none py-5">
+      <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading pt-3">¡Compra exitosa!</h4>
+        <p>Muchas gracias por tu compra, a la brevedad te notificaremos todo lo necesario por su mail, por favor vuelva a inicio.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Fin -->
+
+  <div class="row justify-content-md-center ">
+    <button class="btn btn-primary rounded-pill py-2 btn-block" form="shippingForm" type="submit">Comprar</a>
+    </div>
   </div>
-  </form>
+
+</div>
+
+  </div>
 
   <div id="spinner-wrapper">
     <div class="lds-ring">
