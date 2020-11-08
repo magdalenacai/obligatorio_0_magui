@@ -48,22 +48,17 @@ function MostrarProductos(array){
         ((maxCount == undefined) || (maxCount != undefined && parseInt(category.cost) <= maxCount))){
 
         htmlContentToAppend += `
-        <a href="product-info.html" class="list-group-item-action">
-        <div class="list-group-item list-group-item-action">
-            <div class="row">
-                <div class="col-3">
-                    <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
+        <div class="col-md-4">
+            <a href="product-info.html" class="list-group-item list-group-item-action">
+                <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
+                <div class="d-flex w-100 justify-content-between">
+                    <h4 class="mb-1"> <br> `+ category.name +`</h4>
+                    <small class="text-muted">` + category.soldCount + ` Vendidos</small>
                 </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">`+ category.name + "-" + category.currency +" " + category.cost + `</h4>
-                        <small class="text-muted">` + category.soldCount + " " + "vendidos" +  `</small>
-                    </div>
-                 <small class="text-muted">` + category.description + ` </small>
-                </div>
-            </div>
+                <p class="mb-1">Precio: `+ category.currency +` `+ category.cost+ ` </p>
+                <p class="mb-1">` + category.description + `</p>
+            </a>
         </div>
-        </a>
         `
     }
         document.getElementById("products").innerHTML = htmlContentToAppend;
